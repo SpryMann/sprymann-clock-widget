@@ -141,7 +141,7 @@ body {
   }
 }
 
-@media screen and (min-width: 320px) {
+@media screen and (min-width: 576px) {
   .score {
     width: 150px;
     height: 200px;
@@ -162,7 +162,7 @@ body {
   }
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 768px) {
   .score {
     width: 200px;
     height: 250px;
