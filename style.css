@@ -1,7 +1,125 @@
 *,
 *::before,
 *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+.clock {
+  display: flex;
+  gap: 10px;
+}
+
+.score {
+  border-radius: 10px;
+  width: 200px;
+  height: 250px;
+  font-weight: 700;
+  font-size: 115px;
+  color: #ffffff;
+  background: #1f1f1f;
+  user-select: none;
+}
+
+.score__content {
+  position: relative;
+  height: 100%;
+}
+
+.score__top,
+.score__bottom {
+  position: relative;
+  width: 100%;
+  height: 50%;
+  text-align: center;
+  overflow: hidden;
+}
+
+.score__top {
+  padding-top: calc(0.2 * 100%);
+  line-height: 1.5;
+}
+
+.score__bottom {
+  line-height: 0;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  perspective: 400px;
+}
+
+.overlay__top,
+.overlay__bottom {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  text-align: center;
+  overflow: hidden;
+}
+
+.overlay__top {
+  top: 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding-top: calc(0.2 * 100%);
+  color: #ffffff;
+  line-height: 1.5;
+  background-color: #1f1f1f;
+  transform-origin: bottom;
+}
+
+.overlay.flip .overlay__top {
+  animation: flip-top 0.8s linear;
+}
+
+.overlay.flip .overlay__bottom {
+  animation: flip-bottom 0.8s linear;
+  animation-delay: 0.4s;
+}
+
+.overlay__bottom {
+  bottom: 0;
+  border-top: 2px solid #ffffff;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: #ffffff;
+  line-height: 0;
+  transform-origin: top;
+  background-color: #1f1f1f;
+}
+
+@keyframes flip-top {
+  0% {
+    transform: rotateX(0deg);
+  }
+
+  50%,
+  100% {
+    transform: rotateX(-90deg);
+  }
+}
+
+@keyframes flip-bottom {
+  0% {
+    transform: rotateX(90deg);
+  }
+
+  50%,
+  100% {
+    transform: rotateX(0deg);
+  }
 }
