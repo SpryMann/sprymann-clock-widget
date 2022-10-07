@@ -30,7 +30,7 @@ body {
 .clock__weekday {
   flex: 1;
   font-weight: 700;
-  font-size: 30px;
+  font-size: 15px;
   color: #1f1f1f;
   text-align: center;
   text-transform: uppercase;
@@ -38,10 +38,10 @@ body {
 
 .score {
   border-radius: 10px;
-  width: 150px;
-  height: 200px;
+  width: 100px;
+  height: 150px;
   font-weight: 700;
-  font-size: 75px;
+  font-size: 50px;
   color: #ffffff;
   background: #1f1f1f;
   user-select: none;
@@ -62,7 +62,7 @@ body {
 }
 
 .score__top {
-  padding-top: calc(0.3 * 100%);
+  padding-top: calc(0.4 * 100%);
   line-height: 1.5;
 }
 
@@ -92,7 +92,7 @@ body {
   top: 0;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  padding-top: calc(0.3 * 100%);
+  padding-top: calc(0.4 * 100%);
   color: #ffffff;
   line-height: 1.5;
   background-color: #1f1f1f;
@@ -141,11 +141,37 @@ body {
   }
 }
 
+@media screen and (min-width: 320px) {
+  .score {
+    width: 150px;
+    height: 200px;
+    font-size: 75px;
+  }
+
+  .clock__ampm,
+  .clock__weekday {
+    font-size: 20px;
+  }
+
+  .score__top {
+    padding-top: calc(0.3 * 100%);
+  }
+
+  .overlay__top {
+    padding-top: calc(0.3 * 100%);
+  }
+}
+
 @media screen and (min-width: 576px) {
   .score {
     width: 200px;
     height: 250px;
     font-size: 115px;
+  }
+
+  .clock__ampm,
+  .clock__weekday {
+    font-size: 30px;
   }
 
   .score__top {
