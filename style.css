@@ -14,17 +14,34 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-.clock {
+.clock__content {
   display: flex;
   gap: 10px;
 }
 
+.clock__addition {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  user-select: none;
+}
+
+.clock__ampm,
+.clock__weekday {
+  flex: 1;
+  font-weight: 700;
+  font-size: 30px;
+  color: #1f1f1f;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 .score {
   border-radius: 10px;
-  width: 200px;
-  height: 250px;
+  width: 150px;
+  height: 200px;
   font-weight: 700;
-  font-size: 115px;
+  font-size: 75px;
   color: #ffffff;
   background: #1f1f1f;
   user-select: none;
@@ -45,7 +62,7 @@ body {
 }
 
 .score__top {
-  padding-top: calc(0.2 * 100%);
+  padding-top: calc(0.3 * 100%);
   line-height: 1.5;
 }
 
@@ -75,7 +92,7 @@ body {
   top: 0;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  padding-top: calc(0.2 * 100%);
+  padding-top: calc(0.3 * 100%);
   color: #ffffff;
   line-height: 1.5;
   background-color: #1f1f1f;
@@ -121,5 +138,21 @@ body {
   50%,
   100% {
     transform: rotateX(0deg);
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .score {
+    width: 200px;
+    height: 250px;
+    font-size: 115px;
+  }
+
+  .score__top {
+    padding-top: calc(0.2 * 100%);
+  }
+
+  .overlay__top {
+    padding-top: calc(0.2 * 100%);
   }
 }

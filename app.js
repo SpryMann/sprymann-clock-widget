@@ -17,9 +17,8 @@ function formatAMPM(date) {
   hours = hours ? hours : "12";
   hours = hours < 10 ? `0${hours}` : hours.toString();
   minutes = minutes < 10 ? `0${minutes}` : minutes.toString();
-  seconds = seconds < 10 ? `0${seconds}` : seconds.toString();
 
-  return [hours, minutes, seconds, ampm, dayOfTheWeek];
+  return [hours, minutes, ampm, dayOfTheWeek];
 }
 
 function updateSegmentValue(segment, value) {
@@ -48,8 +47,9 @@ function updateClock() {
   const clock = document.querySelector(".clock");
   const clockHours = clock.querySelector("#hours");
   const clockMinutes = clock.querySelector("#minutes");
-  const clockSeconds = clock.querySelector("#seconds");
-  const [hours, minutes, seconds, ampm, dayOfTheWeek] = formatAMPM(new Date());
+  const clockAmPm = clock.querySelector(".clock__ampm");
+  const clockWeekday = clock.querySelector(".clock__weekday");
+  const [hours, minutes, ampm, dayOfTheWeek] = formatAMPM(new Date());
 
   if (clockHours.querySelector(".score__top").innerHTML !== hours) {
     updateSegmentValue(clockHours, hours);
@@ -59,8 +59,12 @@ function updateClock() {
     updateSegmentValue(clockMinutes, minutes);
   }
 
-  if (clockSeconds.querySelector(".score__top").innerHTML !== seconds) {
-    updateSegmentValue(clockSeconds, seconds);
+  if (clockAmPm.innerHTML !== ampm) {
+    clockAmPm.innerHTML = ampm;
+  }
+
+  if (clockWeekday.innerHTML !== dayOfTheWeek) {
+    clockWeekday.innerHTML = dayOfTheWeek;
   }
 }
 
@@ -68,12 +72,10 @@ function initClock() {
   const clock = document.querySelector(".clock");
   const clockHours = clock.querySelector("#hours");
   const clockMinutes = clock.querySelector("#minutes");
-  const clockSeconds = clock.querySelector("#seconds");
-  const [hours, minutes, seconds, ampm, dayOfTheWeek] = formatAMPM(new Date());
+  const [hours, minutes, ampm, dayOfTheWeek] = formatAMPM(new Date());
 
   updateSegmentValue(clockHours, hours);
   updateSegmentValue(clockMinutes, minutes);
-  updateSegmentValue(clockSeconds, seconds);
 }
 
 window.addEventListener("DOMContentLoaded", () => {
